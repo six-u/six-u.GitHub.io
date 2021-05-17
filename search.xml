@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>six-u blog 加载速度优化</title>
+    <url>/Project/six-u%20blog%20%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<p>偶然注意到，网站图非一般的大，严重影响首次渲染。对于一个静态页来说，实在有点说不过去。</p>
+<p><strong>首先优化图片</strong></p>
+<p>优化方式：</p>
+<ol>
+<li><p>缩小首屏使用到的图片大小</p>
+</li>
+<li><p>使用 manifest 缓存图片、css 等基本不会改变资源</p>
+</li>
+</ol>
+<p>压缩前，主要占用下载的就是图片</p>
+<p><img src="https://gitee.com/six-u/gallery/raw/master/clipboard.png"></p>
+<p>压缩后，虽然还是图片消耗最大，但整体耗时减小了很多</p>
+<p><img src="https://gitee.com/six-u/gallery/raw/master/clipboard1.png"></p>
+<p>压缩前，Largest Contentful Paint (LCP) 最大内容绘制时间 为 3.1 秒</p>
+<p><img src="https://gitee.com/six-u/gallery/raw/master/lcp1.png"></p>
+<p>压缩后，Largest Contentful Paint (LCP) 最大内容绘制时间 为 2.0 秒，LCP 减少三分之一</p>
+<p><img src="https://gitee.com/six-u/gallery/raw/master/lcp2.png"></p>
+<p><strong>精简不必要内容</strong></p>
+<p>然后去除 hexo ocean 主题中本站未使用的功能，如</p>
+<ol>
+<li><p>去掉图库 Gallery 及对应 ejs、jquery</p>
+</li>
+<li><p>去掉灯箱效果 fancyBox 及对应的 ejs、jquery</p>
+</li>
+<li><p>去掉 banner 图 js 过渡效果代码 load.js</p>
+</li>
+<li><p>去掉无用的 iconfont 等</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Project</category>
+      </categories>
+      <tags>
+        <tag>优化</tag>
+        <tag>LCP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>块语句中的函数声明</title>
     <url>/JS%E8%AF%AD%E6%B3%95/%E5%9D%97%E8%AF%AD%E5%8F%A5%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E/</url>
     <content><![CDATA[<h2 id="一道题："><a href="#一道题：" class="headerlink" title="一道题："></a><strong>一道题：</strong></h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  a = <span class="number">1</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">  a = <span class="number">9</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a); <span class="comment">// 9</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
