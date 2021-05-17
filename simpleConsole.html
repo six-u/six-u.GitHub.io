@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple console</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #424242;
+    }
+    .tip,.output,.console,textarea,button{
+      padding: 8px;
+      width: 100%;
+      color: #fff;
+      outline: none;
+      border: none;
+      border-radius: 0;
+      background-color: #424242;
+    }
+    .tip {
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="tip">
+    <p>自用页面console, 方便移动端随时跑js代码片段</p>
+    <p>使用eval实现</p>
+    <p>"$$" 表示输入</p>
+    <p>">>" 表示 eval() 输出</p>
+    <p>"/>" 表示 console.log() 输出</p>
+    <p>"##" 表示 Error 输出</p>
+  </div>
+  <div id="output" class="output">
+  </div>
+  <div class="input"><textarea autofocus type="text" id="input" rows="5"></textarea><button id="submit">submit</button></div>
+  <script>
+    let output = document.getElementById('output')
+    let input = document.getElementById('input')
+    let submit = document.getElementById('submit')
+    submit.addEventListener("click",(e)=>{
+      let str = input.value
+      output.innerText+=("$$ " + str +"\n")
+      str = str.replace(/console.log\(/g, 'window.showOutPut(')
+      try{
+        let r = eval(str)
+        output.innerText+=(">> " + r +"\n")
+      }catch(e){
+        output.innerText+=("## " + e +"\n")
+      }
+      input.value = ""
+      input.focus()
+    })
+    function showOutPut(params){
+      output.innerText+=("/> " + params +"\n")
+    }
+  </script>
+</body>
+</html>

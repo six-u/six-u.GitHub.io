@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /home/
+Allow: /archives/
+Allow: /about/
+Disallow: /images/
+Disallow: /css/
+Disallow: /js/
+Sitemap: https://six-u.gitee.io/sitemap.xml
+Sitemap: https://six-u.gitee.io/baidusitemap.xml

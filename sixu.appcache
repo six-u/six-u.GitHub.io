@@ -1,0 +1,14 @@
+# v0.1
+CACHE MANIFEST
+/favicon.ico
+/images/*
+/css/*
+/js/*
+/fancybox/*
+/robots.txt
+/404.html
+
+NETWORK:
+*
+
+FALLBACK:
