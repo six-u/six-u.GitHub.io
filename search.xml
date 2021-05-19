@@ -46,7 +46,7 @@
     <content><![CDATA[<h2 id="什么是强引用？"><a href="#什么是强引用？" class="headerlink" title="什么是强引用？"></a><strong>什么是强引用？</strong></h2><p>所谓强引用 (Strong  Reference) 就是我们<strong>常见的普通对象引用</strong>，只要还有强引用指向一个对象，就能表明对象还活着。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> student = &#123;<span class="comment">/*some properties*/</span>&#125;</span><br><span class="line"><span class="keyword">let</span> employee = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="keyword">let</span> boss = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</span><br></pre></td></tr></table></figure>
 <p>以上student 、employee 、boss 等变量对对象的引用，均为<strong>强引用</strong></p>
-<p><strong>特点：强引用的对象在js中不会被垃圾回收</strong></p>
+<p><strong>特点：强引用的对象在js中不会被<a href="https://six-u.gitee.io/%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3/JS%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">垃圾回收</a></strong></p>
 <h2 id="什么是弱引用？"><a href="#什么是弱引用？" class="headerlink" title="什么是弱引用？"></a><strong>什么是弱引用？</strong></h2><p>网上有个例子：</p>
 <blockquote>
 <p>强引用就是一个小孩A牵着一条狗，他们之间通过狗链儿连着</p>
@@ -110,7 +110,7 @@
   <entry>
     <title>JS垃圾回收</title>
     <url>/%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3/JS%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</url>
-    <content><![CDATA[<h2 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a><strong>内存泄露</strong></h2><p>程序是运行在内存里的，当声明一个变量、定义一个函数时都会占用内存。内存的容量是有限的，如果变量、函数等只有产生没有消亡的过程，那迟早内存有被完全占用的时候。所以，<strong>对于不再用到的内存，没有及时释放，就叫做内存泄漏</strong></p>
+    <content><![CDATA[<h2 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a><strong>内存泄露</strong></h2><p>程序是运行在内存里的，当声明一个变量、定义一个函数时都会占用内存。内存的容量是有限的，如果变量、函数等只有产生没有消亡的过程，那迟早内存有被完全占用的时候。所以，<strong>对于不再用到的内存，没有及时释放，就叫做<a href="https://six-u.gitee.io/%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3/%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/">内存泄漏</a></strong></p>
 <h2 id="什么是垃圾回收？"><a href="#什么是垃圾回收？" class="headerlink" title="什么是垃圾回收？"></a><strong>什么是垃圾回收？</strong></h2><p>不再继续使用的变量就是垃圾，垃圾还占用着内存造成内存泄露，所以垃圾需要回收，也就是不使用的内存需要回收以便之后使用。所以<strong>垃圾回收是一种内存管理机制</strong>。垃圾回收机制就是间歇的不定期的寻找到不再使用的变量，并释放掉它们所指向的内存</p>
 <h2 id="js的垃圾回收机制"><a href="#js的垃圾回收机制" class="headerlink" title="js的垃圾回收机制"></a><strong>js的垃圾回收机制</strong></h2><p>Javascript 具有自动垃圾回收机制 (GC:Garbage Collecation)，也就是说，执行环境会负责管理代码执行过程中使用的内存。</p>
 <p>JavaScript 垃圾收集器会定期（周期性）找出那些不在继续使用的变量，然后释放其内存。</p>
