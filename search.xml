@@ -1,6 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Set,WeakSet,Map,WeakMap</title>
+    <url>/JS%E8%AF%AD%E6%B3%95/Set,WeakSet,Map,WeakMap/</url>
+    <content><![CDATA[<h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a><strong>是什么？</strong></h2><p>Set、WeakSet 、Map、 WeakMap 均是 ES6 新增的数据类型</p>
+<h3 id="Set："><a href="#Set：" class="headerlink" title="Set："></a>Set：</h3><p>Set 对象允许你存储<strong>任何类型的唯一值</strong>，无论是原始值或者是对象引用。Set 对象是值的集合，你可以按照插入的顺序迭代它的元素。 Set 中的元素只会出现一次，即 <strong>Set 中的元素是唯一的</strong>。</p>
+<h3 id="WeakSet"><a href="#WeakSet" class="headerlink" title="WeakSet:"></a>WeakSet:</h3><p>WeakSet 对象是一些<strong>对象值的集合</strong>, 并且其中的每个对象值都只能出现一次。在WeakSet 的集合中是唯一的。也即是说，WeakSet 是只能放对象值的 Set 集合,并且这个对对象值的引用是弱引用。</p>
+<h3 id="Map："><a href="#Map：" class="headerlink" title="Map："></a>Map：</h3><p>Map 对象保存键值对，并且能够记住键的原始插入顺序。任何值(对象或者原始值) 都可以作为一个键或一个值。</p>
+<h3 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap:"></a>WeakMap:</h3><p>WeakMap 是 key 只能是 Object 类型的 Map。 原始数据类型 是不能作为 key 的（比如 Symbol）。并且用作 key 的 对象是**<a href="https://six-u.gitee.io/JS%E8%AF%AD%E6%B3%95/JS%E5%BC%BA%E5%BC%95%E7%94%A8%E5%BC%B1%E5%BC%95%E7%94%A8/">弱引用</a>**的。</p>
+<p>注：Set 内部使用 Object.is() 方法来判断两个数据项是否相等，Map 则是使用 Object.is() 方法判断键是否相等</p>
+<h2 id="有什么区别？"><a href="#有什么区别？" class="headerlink" title="有什么区别？"></a><strong>有什么区别？</strong></h2><h3 id="Set-WeakSet"><a href="#Set-WeakSet" class="headerlink" title="Set/WeakSet"></a><strong>Set/WeakSet</strong></h3><ol>
+<li>Set可以存放任何类型的值（基本类型，引用类型），WeakSet只能存放引用类型的值</li>
+<li>Set存放引用类型是强引用，WeakSet是弱引用</li>
+<li>Set可以遍历，但因为WeakSet是弱引用，所以不能遍历</li>
+</ol>
+<h3 id="Map-WeakMap"><a href="#Map-WeakMap" class="headerlink" title="Map/WeakMap"></a><strong>Map/WeakMap</strong></h3><ol>
+<li>Map的key可以是任意类型，WeakMap的key只能是对象</li>
+<li>Map的key是强引用，WeakMap是弱引用</li>
+<li>Map可以遍历，但因为WeakMap是弱引用，所以也不能遍历</li>
+</ol>
+<h3 id="Set-Map"><a href="#Set-Map" class="headerlink" title="Set/Map"></a><strong>Set/Map</strong></h3><ol>
+<li>Set又称为集合，Map又称为字典，Set集合以[value,value]的形式存储数据，Map字典以[key,value]的形式存储数据</li>
+<li>Set的键就是值，值就是键，Map的键是键，值是值。</li>
+<li>可以将 Set 理解为 将 value 作为 key 的 Map</li>
+</ol>
+<h2 id="运用场景举例"><a href="#运用场景举例" class="headerlink" title="运用场景举例"></a><strong>运用场景举例</strong></h2><h3 id="Set：-1"><a href="#Set：-1" class="headerlink" title="Set："></a><strong>Set：</strong></h3><p>数组去重：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">5</span>]</span><br><span class="line">arr = [...new <span class="built_in">Set</span>(arr)] <span class="comment">// [1,2,3,4,5]</span></span><br></pre></td></tr></table></figure>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map:"></a><strong>Map:</strong></h3><p>作为数据字典，存取速度更快，底层有优化，在频繁增删键值对的场景下表现更好。</p>
+<h3 id="WeakSet-WeakMap"><a href="#WeakSet-WeakMap" class="headerlink" title="WeakSet/WeakMap:"></a><strong>WeakSet/WeakMap:</strong></h3><p>以DOM对象为弱引用键，保存相关数据，当DOM回收时，避免内存泄漏</p>
+]]></content>
+      <categories>
+        <category>JS语法</category>
+      </categories>
+      <tags>
+        <tag>弱引用</tag>
+        <tag>WeakSet</tag>
+        <tag>WeakMap</tag>
+        <tag>Set</tag>
+        <tag>Map</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS强引用弱引用</title>
+    <url>/JS%E8%AF%AD%E6%B3%95/JS%E5%BC%BA%E5%BC%95%E7%94%A8%E5%BC%B1%E5%BC%95%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="什么是强引用？"><a href="#什么是强引用？" class="headerlink" title="什么是强引用？"></a><strong>什么是强引用？</strong></h2><p>所谓强引用 (Strong  Reference) 就是我们<strong>常见的普通对象引用</strong>，只要还有强引用指向一个对象，就能表明对象还活着。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> student = &#123;<span class="comment">/*some properties*/</span>&#125;</span><br><span class="line"><span class="keyword">let</span> employee = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="keyword">let</span> boss = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</span><br></pre></td></tr></table></figure>
+<p>以上student 、employee 、boss 等变量对对象的引用，均为<strong>强引用</strong></p>
+<p><strong>特点：强引用的对象在js中不会被垃圾回收</strong></p>
+<h2 id="什么是弱引用？"><a href="#什么是弱引用？" class="headerlink" title="什么是弱引用？"></a><strong>什么是弱引用？</strong></h2><p>网上有个例子：</p>
+<blockquote>
+<p>强引用就是一个小孩A牵着一条狗，他们之间通过狗链儿连着</p>
+<p>弱引用就是，旁边有个小孩B指着A牵的狗，说：嘿，那有条狗，B指向那条狗，但他们之间没有是指绑在一起的东西</p>
+<p>当A放开狗链，狗就会跑掉（被垃圾回收），无论B是不是还指着</p>
+<p>但是，当B不再指着那条狗，狗还被A牵着，不会影响它是否跑掉</p>
+</blockquote>
+<p>也即是说，如果在使用引用计数方式的垃圾回收策略的浏览器中，可以看作当产生一个弱引用时，计数并不会加1。</p>
+<h2 id="js中弱引用的例子"><a href="#js中弱引用的例子" class="headerlink" title="js中弱引用的例子"></a><strong>js中弱引用的例子</strong></h2><p>在JS中，ES6新增的 <a href="https://six-u.gitee.io/JS%E8%AF%AD%E6%B3%95/Set,WeakSet,Map,WeakMap/">WeakMap 和 WeakSet</a> 给我们提供了部分弱引用的能力，其中WeakMap接受引用类型的 key，WeakSet接受只接受引用类型的值，以下时MDN的描述：</p>
+<p>WeakSet 对象允许你将弱保持对象存储在一个集合中。</p>
+<p>WeakMap 对象是一组键/值对的集合，其中的键是弱引用的。其键必须是对象，而值可以是任意的。</p>
+<p><strong>当然真正实现弱引用的API 其实是 WeakRef对象</strong></p>
+<p>​    WeakRef对象包含对对象的弱引用，这个弱引用被称为该WeakRef对象的target或者是referent。对对象的弱引用是指当该对象应该被GC回收时不会阻止GC的回收行为。而与此相反的，一个普通的引用（默认是强引用）会将与之对应的对象保存在内存中。只有当该对象没有任何的强引用时，JavaScript引擎GC才会销毁该对象并且回收该对象所占的内存空间。如果上述情况发生了，那么你就无法通过任何的弱引用来获取该对象。</p>
+<p><strong>参考</strong></p>
+<blockquote>
+<p><a href="https://v8.dev/features/weak-references">Weak references and finalizers · V8</a></p>
+<p><a href="https://www.infoq.cn/article/lKsmb2tlGH1EHG0*bbYg">如何实现JS真正意义上的弱引用？-InfoQ</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/WeakRef">WeakRef - JavaScript | MDN (mozilla.org)</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JS语法</category>
+      </categories>
+      <tags>
+        <tag>强引用</tag>
+        <tag>弱引用</tag>
+        <tag>垃圾回收</tag>
+        <tag>WeakSet</tag>
+        <tag>WeakMap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS内存泄漏</title>
+    <url>/%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3/%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</url>
+    <content><![CDATA[<h2 id="什么是js内存泄露"><a href="#什么是js内存泄露" class="headerlink" title="什么是js内存泄露"></a><strong>什么是js内存泄露</strong></h2><p>内存泄漏（Memory Leak）是指程序中己动态分配的堆内存由于某种原因程序未释放或无法释放，造成系统内存的浪费，导致程序运行速度减慢甚至系统崩溃等严重后果。</p>
+<p>通俗理解就是：</p>
+<p>程序是运行在内存里的，当声明一个变量、定义一个函数时都会占用内存。内存的容量是有限的，如果变量、函数等只有产生没有消亡的过程，那迟早内存有被完全占用的时候。所以，<strong>对于不再用到的内存，没有及时释放，就叫做内存泄漏</strong></p>
+<h2 id="造成内存泄露的常见情况"><a href="#造成内存泄露的常见情况" class="headerlink" title="造成内存泄露的常见情况"></a><strong>造成内存泄露的常见情况</strong></h2><p>1、意外的全局变量引起的内存泄漏</p>
+<p>原因：全局变量，不会被回收。</p>
+<p>解决：使用严格模式避免</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span> <span class="comment">// 解决方式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    b = <span class="string">&quot;some variable&quot;</span>  <span class="comment">// b未声明，被赋值为window的属性，变为全局变量  //严格模式下报错</span></span><br><span class="line">&#125;</span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<p>2、DOM操作中闭包引起的内存泄漏</p>
+<p>原因：闭包可以维持函数内局部变量，使其得不到释放。</p>
+<p>解决：定义事件处理函数的外部函数中，删除对DOM的引用。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">some</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> ele = <span class="built_in">document</span>.getElementById(<span class="string">&quot;id&quot;</span>)</span><br><span class="line">    ele.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//do sth...</span></span><br><span class="line">    &#125;</span><br><span class="line">    ele = <span class="literal">null</span>  <span class="comment">// 解决方式</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3、被遗忘的定时器或者回调</p>
+<p>原因：定时器中有DOM的引用，即使DOM删除了，但是定时器还在，所以内存中还是有这个DOM。</p>
+<p>解决：手动删除定时器和DOM</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">//do sth...</span></span><br><span class="line">&#125;,<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解决</span></span><br><span class="line"><span class="keyword">let</span> timer = <span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">//do sth...</span></span><br><span class="line">&#125;,<span class="number">1000</span>)</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="built_in">window</span>.clearInterval(timer)</span><br></pre></td></tr></table></figure>
+<h2 id="如何检测"><a href="#如何检测" class="headerlink" title="如何检测"></a><strong>如何检测</strong></h2><p>使用Chrome 控制台 Memory 以及 Performance 面板</p>
+]]></content>
+      <categories>
+        <category>前端相关</category>
+      </categories>
+      <tags>
+        <tag>内存泄漏</tag>
+        <tag>Memory</tag>
+        <tag>Performance</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS垃圾回收</title>
+    <url>/%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3/JS%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</url>
+    <content><![CDATA[<h2 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a><strong>内存泄露</strong></h2><p>程序是运行在内存里的，当声明一个变量、定义一个函数时都会占用内存。内存的容量是有限的，如果变量、函数等只有产生没有消亡的过程，那迟早内存有被完全占用的时候。所以，<strong>对于不再用到的内存，没有及时释放，就叫做内存泄漏</strong></p>
+<h2 id="什么是垃圾回收？"><a href="#什么是垃圾回收？" class="headerlink" title="什么是垃圾回收？"></a><strong>什么是垃圾回收？</strong></h2><p>不再继续使用的变量就是垃圾，垃圾还占用着内存造成内存泄露，所以垃圾需要回收，也就是不使用的内存需要回收以便之后使用。所以<strong>垃圾回收是一种内存管理机制</strong>。垃圾回收机制就是间歇的不定期的寻找到不再使用的变量，并释放掉它们所指向的内存</p>
+<h2 id="js的垃圾回收机制"><a href="#js的垃圾回收机制" class="headerlink" title="js的垃圾回收机制"></a><strong>js的垃圾回收机制</strong></h2><p>Javascript 具有自动垃圾回收机制 (GC:Garbage Collecation)，也就是说，执行环境会负责管理代码执行过程中使用的内存。</p>
+<p>JavaScript 垃圾收集器会定期（周期性）找出那些不在继续使用的变量，然后释放其内存。</p>
+<h2 id="js垃圾回收原理"><a href="#js垃圾回收原理" class="headerlink" title="js垃圾回收原理"></a><strong>js垃圾回收原理</strong></h2><h3 id="标记清除"><a href="#标记清除" class="headerlink" title="*标记清除"></a>*<strong>标记清除</strong></h3><p><strong>原理：</strong>当变量进入执行环境（如在函数中声明一个变量）的时候，垃圾回收器将其标记为“进入环境”，当变量离开环境的时候（函数执行结束）将其标记为“离开环境”，在离开环境之后还有的变量则是需要被删除的变量</p>
+<p><strong>绝大多数现代浏览器使用此方式进行垃圾回收。</strong></p>
+<p><strong>执行过程</strong>：JavaScript 中有个全局对象，浏览器中是 window。垃圾收集器将定期从这个全局对象开始，找所有从这个全局对象开始引用的对象，再找这些对象引用的对象，一直进行下去，并对这些活着的对象进行标记，这是标记阶段。清除阶段就是清除那些没有被标记的对象。</p>
+<p>标记阶段</p>
+<p><img src="https://gitee.com/six-u/gallery/raw/master/biaoji.png"></p>
+<p>清除阶段</p>
+<p><img src="https://gitee.com/six-u/gallery/raw/master/clearprocess.png"></p>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>标记的效率太慢了，我们的垃圾回收需要时时刻刻去遍历检查每一个引用，如果你的js代码中对象太多，会导致非常严重的效率问题</li>
+<li>浏览器在标记的过程中js是不能执行的，我们不能让垃圾回收拖慢我们js运行的时间</li>
+</ol>
+<h3 id="引用计数"><a href="#引用计数" class="headerlink" title="*引用计数"></a>*<strong>引用计数</strong></h3><p>机制就是跟踪一个值的引用次数，当声明一个变量并将一个引用类型赋值给该变量时该值引用次数加1，当这个变量指向其他一个时该值的引用次数便减一。当该值引用次数为0时就会被回收。</p>
+<p>这种方式常常会引起内存泄漏（循环引用时），低版本的IE使用这种方式</p>
+<p><img src="https://gitee.com/six-u/gallery/raw/master/yinyongjs.png"></p>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>A 和 B 循环引用，就算没有其他地方引用A或B,A/B的计时器都至少为1，不会被回收，造成内存泄露</li>
+<li>变量的计数器一直计数，所以需要一直占用一定的空间，直到变量被回收，增加了内容占用</li>
+</ol>
+<p><img src="https://gitee.com/six-u/gallery/raw/master/xunhuanyinyong.png"></p>
+<h2 id="js垃圾回收（标记清除）相关优化"><a href="#js垃圾回收（标记清除）相关优化" class="headerlink" title="js垃圾回收（标记清除）相关优化"></a><strong>js垃圾回收（标记清除）相关优化</strong></h2><h3 id="分代回收（Generation-GC）："><a href="#分代回收（Generation-GC）：" class="headerlink" title="分代回收（Generation GC）："></a><strong>分代回收（Generation GC）：</strong></h3><p>通过区分“临时”与“持久”对象；多回收“临时对象”区（young generation），少回收“持久对象”区（tenured generation），减少每次需遍历的对象，从而减少每次GC的耗时</p>
+<p>例如：V8将内存分为新生代和老生代，新生代中对象存活时间较短；老生代的对象存活时间较长或常驻内存</p>
+<p><strong>Scavenge 算法</strong>：在分代的基础上，新生代的对象主要通过 Scavenge 算法进行垃圾回收。</p>
+<p><strong>Cheney算法</strong>：Scavenge 算法的主要内部实现，Cheney 算法将堆内存一分为二，一个处于使用状态的空间叫 From 空间，一个处于闲置状态的空间称为 To 空间。分配对象时，先是在 From 空间中进行分配。当开始进行垃圾回收时，会检查 From 空间中的存活对象，将其复制到 To 空间中，而非存活对象占用的空间将会被释放。完成复制后，From 空间和 To 空间的角色发生对换。当一个对象经过多次复制后依然存活，他将会被认为是生命周期较长的对象，随后会被移动到老生代中，采用新的算法进行管理。还有一种情况是，如果复制一个对象到 To 空间时，To 空间占用超过了 25%，则这个对象会被直接晋升到老生代空间中。</p>
+<p><img src="https://gitee.com/six-u/gallery/raw/master/cheneysca.png"></p>
+<p><strong>标记-清除和标记-整理算法：</strong>在分代的基础上，对老生代使用此算法。标记清楚后会留下不连续的内存空间，使用标记整理解决这一问题。<strong>标记-整理**</strong>由于需要移动对象，执行速度不会太快，所以在取舍上，V8主要使用**<strong>标记-清除**</strong>，当内存不足以分配时才会采用**<strong>标记-整理</strong></p>
+<p><img src="https://gitee.com/six-u/gallery/raw/master/markcompase.png"></p>
+<h3 id="增量标记-GC"><a href="#增量标记-GC" class="headerlink" title="增量标记 GC"></a><strong>增量标记 GC</strong></h3><p>全停顿（stop-the-world）：</p>
+<p>为了避免js应用逻辑和垃圾回收器看到不一样的情况，前面三种垃圾回收算法都需要将应用逻辑暂停下来，待执行完垃圾回收后再恢复执行应用逻辑。这种行为被称为全停顿。</p>
+<p>在上述V8 新生代的分代回收中，只收集新生代，而新生代通常配置较小，且存活对象较少，所以全停顿的影响不大，而老生代恰恰相反，全停顿很肯能导致页面卡顿。</p>
+<p>所以，为了降低全堆垃圾回收带来的停顿时间，V8在标记时采用增量标记（incremental marking），即<strong>将标记拆分为许多小步进，每一个步进完成时，就让js逻辑执行一小会</strong>。<strong>垃圾回收和逻辑执行交替进行，直到标记阶段完成</strong>。而后续的清理和整理也分别采用延迟清理（lazy sweeping）和增量整理（incremental compact</p>
+<p><img src="https://gitee.com/six-u/gallery/raw/master/incremental_marking.png"></p>
+<p>参考：</p>
+<blockquote>
+<p>​    <a href="https://zhuanlan.zhihu.com/p/113296268">v8垃圾回收机制</a></p>
+<p>​    <a href="https://zhuanlan.zhihu.com/p/23992332">JavaScript 中的垃圾回收</a></p>
+<p>​    <a href="https://zhuanlan.zhihu.com/p/353346756">浅析JS垃圾回收机制</a></p>
+<p>​    <a href="https://www.jb51.net/article/162416.htm">深入理解 JS 垃圾回收</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>前端相关</category>
+      </categories>
+      <tags>
+        <tag>垃圾回收</tag>
+        <tag>内存泄漏</tag>
+        <tag>标记清楚</tag>
+        <tag>引用计数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>six-u blog 加载速度优化</title>
     <url>/Project/six-u%20blog%20%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<p>偶然注意到，网站图非一般的大，严重影响首次渲染。对于一个静态页来说，实在有点说不过去。</p>
@@ -992,8 +1157,8 @@
         <category>NodeJs</category>
       </categories>
       <tags>
-        <tag>uuid</tag>
         <tag>nodejs</tag>
+        <tag>uuid</tag>
         <tag>npm</tag>
       </tags>
   </entry>
@@ -1116,8 +1281,8 @@
         <category>NodeJs</category>
       </categories>
       <tags>
-        <tag>nodejs</tag>
         <tag>mysql</tag>
+        <tag>nodejs</tag>
         <tag>链接池</tag>
       </tags>
   </entry>
